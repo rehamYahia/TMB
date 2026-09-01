@@ -36,4 +36,6 @@ Map<String, String> ar = {
   "reset_password": "إعادة تعيين كلمة المرور",
   "reset_password_welcome":
       "أدخل كلمة مرورك الجديدة\n  لتتمكن من إعادة تعيين كلمة المرور.",
+  "phone_number": "رقم الهاتف",
+  "enter_phone_number": "ادخل رقم الهاتف",
 };

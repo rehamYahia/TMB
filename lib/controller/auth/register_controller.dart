@@ -6,6 +6,7 @@ import '../../core/constant/routes/navigate.dart';
 abstract class RegisterController extends GetxController {
   navigateToSignIn();
   signUp();
+  navigateToSucessSignUp();
 }
 
 class RegisterControllerImp extends RegisterController {
@@ -25,5 +26,10 @@ class RegisterControllerImp extends RegisterController {
   @override
   void dispose() {
     super.dispose();
+  }
+
+  @override
+  navigateToSucessSignUp() {
+    Go.off(AppRoutes.sucessSignUp);
   }
 }

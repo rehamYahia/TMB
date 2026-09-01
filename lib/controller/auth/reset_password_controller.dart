@@ -5,13 +5,13 @@ import '../../core/constant/routes/navigate.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetPassword();
-  navigateToLogin();
+  navigateToSucessReset();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
   @override
-  navigateToLogin() {
-    Go.off(AppRoutes.login);
+  navigateToSucessReset() {
+    Go.off(AppRoutes.sucessResetPassword);
   }
 
   @override

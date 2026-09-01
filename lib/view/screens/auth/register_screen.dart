@@ -62,17 +62,18 @@ class RegisterScreen extends GetView<SettingServices> {
               SizedBox(height: 10),
               customTextFormField(
                 emailController,
-                "enter_your_password".tr,
-                "password".tr,
-                Icons.remove_red_eye_outlined,
+                "phone_number".tr,
+                "enter_phone_number".tr,
+                Icons.phone,
               ),
               SizedBox(height: 10),
               customTextFormField(
                 emailController,
-                "confirm_password".tr,
-                "confirm_password".tr,
+                "enter_your_password".tr,
+                "password".tr,
                 Icons.remove_red_eye_outlined,
               ),
+
               SizedBox(height: 10),
 
               CustomButton(

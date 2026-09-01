@@ -72,7 +72,7 @@ class ResetPassword extends StatelessWidget {
                 AppColors.white,
                 12,
                 () {
-                  resetPasswordControllerImp.navigateToLogin();
+                  resetPasswordControllerImp.navigateToSucessReset();
                 },
               ),
             ],

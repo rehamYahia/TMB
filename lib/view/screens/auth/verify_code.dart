@@ -47,6 +47,11 @@ class VerifyCode extends StatelessWidget {
 
               SizedBox(height: 40),
               OtpTextField(
+                cursorColor: AppColors.grey,
+                disabledBorderColor: AppColors.light_grey,
+                enabledBorderColor: AppColors.light_grey,
+                fillColor: AppColors.primaryColor,
+                focusedBorderColor: AppColors.primaryColor,
                 fieldWidth: 50,
                 borderRadius: BorderRadius.circular(20),
                 numberOfFields: 5,
