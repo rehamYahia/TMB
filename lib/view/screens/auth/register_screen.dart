@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:noon/controller/auth/register_controller.dart';
 
 import '../../../core/constant/app_color.dart';
+import '../../../core/constant/routes/app_routes.dart';
+import '../../../core/constant/routes/navigate.dart';
 import '../../../core/services/setting_services.dart';
 import '../../widgets/auth/custom_auth_logo.dart';
 import '../../widgets/auth/custom_text_form_field.dart';
@@ -15,8 +17,10 @@ class RegisterScreen extends GetView<SettingServices> {
   @override
   Widget build(BuildContext context) {
     RegisterControllerImp registerControllerImp = Get.find();
-    String? appLanguage = controller.sharedPreferance.getString("lang");
+    TextEditingController userNameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
       appBar: AppBar(
@@ -47,7 +51,7 @@ class RegisterScreen extends GetView<SettingServices> {
 
               SizedBox(height: 20),
               customTextFormField(
-                emailController,
+                userNameController,
                 "enter_your_name".tr,
                 "username".tr,
                 Icons.person_2_outlined,
@@ -61,14 +65,14 @@ class RegisterScreen extends GetView<SettingServices> {
               ),
               SizedBox(height: 10),
               customTextFormField(
-                emailController,
+                phoneController,
                 "phone_number".tr,
                 "enter_phone_number".tr,
                 Icons.phone,
               ),
               SizedBox(height: 10),
               customTextFormField(
-                emailController,
+                passwordController,
                 "enter_your_password".tr,
                 "password".tr,
                 Icons.remove_red_eye_outlined,
@@ -83,7 +87,9 @@ class RegisterScreen extends GetView<SettingServices> {
                 AppColors.primaryColor,
                 AppColors.white,
                 12,
-                () {},
+                () {
+                  Go.to(AppRoutes.signupVerification);
+                },
               ),
               Center(
                 child: Row(

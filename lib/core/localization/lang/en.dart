@@ -40,4 +40,5 @@ Map<String, String> en = {
       "enter your new password \n to can do reset password",
   "phone_number": "Phone Number",
   "enter_phone_number": "enter phone number",
+  "signup_verification": "Sign Up Verification",
 };

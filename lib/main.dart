@@ -5,7 +5,6 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:noon/route.dart';
 import 'package:noon/view/screens/language/language_screen.dart';
 
-import 'core/constant/app_color.dart';
 import 'core/localization/controller/lang_controller.dart';
 import 'core/localization/translation.dart';
 import 'core/services/setting_services.dart';
@@ -26,18 +25,7 @@ class MyApp extends StatelessWidget {
     LangController controller = Get.put(LangController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.black),
-        textTheme: const TextTheme(
-          headlineLarge: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-            color: AppColors.black,
-          ),
-          headlineMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          bodyMedium: TextStyle(fontSize: 14, height: 2, color: AppColors.grey),
-        ),
-      ),
+      theme: controller.appTheme,
       home: LanguageScreen(),
       routes: routes,
       locale: controller.language,

@@ -19,6 +19,7 @@ class LoginScreen extends GetView<SettingServices> {
     // LoginControllerImp loginControllerImp = Get.find();
     String? appLanguage = controller.sharedPreferance.getString("lang");
     TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
       appBar: AppBar(
@@ -65,7 +66,7 @@ class LoginScreen extends GetView<SettingServices> {
                   Icons.email_outlined,
                 ),
                 customTextFormField(
-                  emailController,
+                  passwordController,
                   "enter_your_password".tr,
                   "password".tr,
                   Icons.remove_red_eye_outlined,

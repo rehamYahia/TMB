@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/onboarding/onboarding_controller.dart';
+import '../../../core/constant/app_color.dart';
 import '../../../data/datasource/static/static.dart';
 
 class CustomSliderOnBoarding extends GetView<OnboardingControllerImp> {
@@ -23,13 +24,13 @@ class CustomSliderOnBoarding extends GetView<OnboardingControllerImp> {
             Image.asset(
               "${onBoardingList[index].image}",
               width: double.infinity,
-              height: 250,
+              height: Get.width / 1.3,
               fit: BoxFit.contain,
             ),
             SizedBox(height: 50),
             Text(
               "${onBoardingList[index].title}",
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(height: 30),
 
@@ -39,7 +40,11 @@ class CustomSliderOnBoarding extends GetView<OnboardingControllerImp> {
               child: Text(
                 textAlign: TextAlign.center,
                 "${onBoardingList[index].body}",
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: TextStyle(
+                  fontSize: 14,
+                  height: 2,
+                  color: AppColors.grey,
+                ),
               ),
             ),
           ],

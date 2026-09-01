@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-import '../../../controller/auth/verification_code_controller.dart';
+import '../../../controller/auth/signup_verification.dart';
 import '../../../core/constant/app_color.dart';
 
-class VerifyCode extends StatelessWidget {
-  const VerifyCode({super.key});
+class SignupVerification extends StatelessWidget {
+  const SignupVerification({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VerificationCodeControllerImp verificationCodeControllerImp = Get.find();
+    SignupVerificationControllerImp signupVerificationControllerImp =
+        Get.find();
     TextEditingController emailController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "verification_code".tr,
+          "signup_verification".tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium?.copyWith(color: AppColors.light_grey),
@@ -60,7 +63,7 @@ class VerifyCode extends StatelessWidget {
                 showFieldAsBox: true,
                 onCodeChanged: (String code) {},
                 onSubmit: (String verificationCode) {
-                  verificationCodeControllerImp.navigateToResetPassword();
+                  // verificationCodeControllerImp.navigateToResetPassword();
                 },
               ),
             ],
