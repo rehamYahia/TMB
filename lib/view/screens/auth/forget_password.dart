@@ -11,7 +11,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ForgetPasswordControllerImp());
+    ForgetPasswordControllerImp forgetPasswordControllerImp = Get.find();
     TextEditingController emailController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
@@ -56,18 +56,16 @@ class ForgetPassword extends StatelessWidget {
 
               SizedBox(height: 10),
 
-              GetBuilder<ForgetPasswordControllerImp>(
-                builder: (forgetPasswordController) => CustomButton(
-                  "check".tr,
-                  150,
-                  40,
-                  AppColors.primaryColor,
-                  AppColors.white,
-                  12,
-                  () {
-                    forgetPasswordController.navigateToVerification();
-                  },
-                ),
+              CustomButton(
+                "check".tr,
+                150,
+                40,
+                AppColors.primaryColor,
+                AppColors.white,
+                12,
+                () {
+                  forgetPasswordControllerImp.navigateToVerification();
+                },
               ),
             ],
           ),

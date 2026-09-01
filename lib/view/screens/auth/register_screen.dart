@@ -14,7 +14,7 @@ class RegisterScreen extends GetView<SettingServices> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RegisterControllerImp());
+    RegisterControllerImp registerControllerImp = Get.find();
     String? appLanguage = controller.sharedPreferance.getString("lang");
     TextEditingController emailController = TextEditingController();
     return Scaffold(
@@ -92,15 +92,13 @@ class RegisterScreen extends GetView<SettingServices> {
                       "not_have_account".tr,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    GetBuilder<RegisterControllerImp>(
-                      builder: (registerController) => CustomTextButton(
-                        text: "signin".tr,
-                        textColor: AppColors.primaryColor,
-                        fontSize: 14,
-                        onTap: () {
-                          registerController.navigateToSignIn();
-                        },
-                      ),
+                    CustomTextButton(
+                      text: "signin".tr,
+                      textColor: AppColors.primaryColor,
+                      fontSize: 14,
+                      onTap: () {
+                        registerControllerImp.navigateToSignIn();
+                      },
                     ),
                   ],
                 ),

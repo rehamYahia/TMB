@@ -35,4 +35,7 @@ Map<String, String> en = {
   "verification_code": "Verification Code",
   "verification_welcome": "enter the OTP code \n that sent to your email ",
   "check_code": "Check Code",
+  "reset_password": "Reset Password",
+  "reset_password_welcome":
+      "enter your new password \n to can do reset password",
 };

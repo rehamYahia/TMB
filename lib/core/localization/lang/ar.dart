@@ -33,4 +33,7 @@ Map<String, String> ar = {
   "verification_welcome":
       "أدخل رمز التحقق لمرة واحدة (OTP)\n الذي تم إرساله إلى بريدك الإلكتروني",
   "check_code": "رمز التحقق",
+  "reset_password": "إعادة تعيين كلمة المرور",
+  "reset_password_welcome":
+      "أدخل كلمة مرورك الجديدة\n  لتتمكن من إعادة تعيين كلمة المرور.",
 };

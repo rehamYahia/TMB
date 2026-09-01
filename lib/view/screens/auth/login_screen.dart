@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:noon/controller/auth/login_controller.dart';
 
 import '../../../core/constant/app_color.dart';
+import '../../../core/constant/routes/app_routes.dart';
+import '../../../core/constant/routes/navigate.dart';
 import '../../../core/services/setting_services.dart';
 import '../../widgets/auth/custom_auth_logo.dart';
 import '../../widgets/auth/custom_text_form_field.dart';
@@ -14,7 +16,7 @@ class LoginScreen extends GetView<SettingServices> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginControllerImp());
+    // LoginControllerImp loginControllerImp = Get.find();
     String? appLanguage = controller.sharedPreferance.getString("lang");
     TextEditingController emailController = TextEditingController();
     return Scaffold(
@@ -29,93 +31,94 @@ class LoginScreen extends GetView<SettingServices> {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Column(
-            children: [
-              // SizedBox(height: 20),
-              CustomAuthLogo(),
-              Center(
-                child: Text(
-                  "welcome_back".tr,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-              ),
-
-              SizedBox(height: 10),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  textAlign: TextAlign.center,
-                  "signin_welcome".tr,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium?.copyWith(color: AppColors.light_grey),
-                ),
-              ),
-
-              SizedBox(height: 40),
-              customTextFormField(
-                emailController,
-                "enter_your_email".tr,
-                "email".tr,
-                Icons.email_outlined,
-              ),
-              customTextFormField(
-                emailController,
-                "enter_your_password".tr,
-                "password".tr,
-                Icons.remove_red_eye_outlined,
-              ),
-
-              GetBuilder<LoginController>(
-                builder: (loginController) => Align(
-                  alignment: appLanguage == "en" || appLanguage == null
-                      ? Alignment.topLeft
-                      : Alignment.topRight,
-                  child: CustomTextButton(
-                    text: "forget_password".tr,
-                    textColor: AppColors.grey,
-                    fontSize: 14,
-                    onTap: () {
-                      loginController.navigateToForgetPassword();
-                    },
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Column(
+              children: [
+                // SizedBox(height: 20),
+                CustomAuthLogo(),
+                Center(
+                  child: Text(
+                    "welcome_back".tr,
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
-              ),
 
-              CustomButton(
-                "signin".tr,
-                300,
-                50,
-                AppColors.primaryColor,
-                AppColors.white,
-                12,
-                () {},
-              ),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "not_have_account".tr,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                SizedBox(height: 10),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 25),
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    "signin_welcome".tr,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppColors.light_grey,
                     ),
+                  ),
+                ),
 
-                    GetBuilder<LoginControllerImp>(
-                      builder: (loginController) => CustomTextButton(
+                SizedBox(height: 40),
+                customTextFormField(
+                  emailController,
+                  "enter_your_email".tr,
+                  "email".tr,
+                  Icons.email_outlined,
+                ),
+                customTextFormField(
+                  emailController,
+                  "enter_your_password".tr,
+                  "password".tr,
+                  Icons.remove_red_eye_outlined,
+                ),
+
+                GetBuilder<LoginControllerImp>(
+                  builder: (loginControllerImp) => Align(
+                    alignment: appLanguage == "en" || appLanguage == null
+                        ? Alignment.topLeft
+                        : Alignment.topRight,
+                    child: CustomTextButton(
+                      text: "forget_password".tr,
+                      textColor: AppColors.grey,
+                      fontSize: 14,
+                      onTap: () {
+                        loginControllerImp.navigateToForgetPassword();
+                      },
+                    ),
+                  ),
+                ),
+
+                CustomButton(
+                  "signin".tr,
+                  300,
+                  50,
+                  AppColors.primaryColor,
+                  AppColors.white,
+                  12,
+                  () {},
+                ),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "not_have_account".tr,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+
+                      CustomTextButton(
                         text: "signup".tr,
                         textColor: AppColors.primaryColor,
                         fontSize: 14,
                         onTap: () {
-                          loginController.navigateToSignUp();
+                          Go.to(AppRoutes.register);
+                          // loginControllerImp.navigateToSignUp();
                         },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

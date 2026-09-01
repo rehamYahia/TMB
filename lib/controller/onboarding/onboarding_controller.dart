@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../core/constant/routes/app_routes.dart';
+import '../../core/constant/routes/navigate.dart';
+
 abstract class OnboardingController extends GetxController {
   next();
   onPageChanged(int pageNum);
+  navigateToLogin();
 }
 
 class OnboardingControllerImp extends OnboardingController {
@@ -29,5 +33,10 @@ class OnboardingControllerImp extends OnboardingController {
   void onInit() {
     pageController = PageController();
     super.onInit();
+  }
+
+  @override
+  navigateToLogin() {
+    Go.off(AppRoutes.login);
   }
 }

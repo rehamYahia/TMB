@@ -16,7 +16,7 @@ class OnBoardingScreen extends GetView<OnboardingControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OnboardingControllerImp());
+    // OnboardingControllerImp onboardingControllerImp = Get.find();
 
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
@@ -28,9 +28,9 @@ class OnBoardingScreen extends GetView<OnboardingControllerImp> {
               flex: 1,
               child: Column(
                 children: [
-                  CustomOnboardingDots.customDots(
-                    onBoardingList.length,
-                    AppColors.primaryColor,
+                  CustomOnboardingDots(
+                    listLength: onBoardingList.length,
+                    dotsColor: AppColors.primaryColor,
                   ),
                   SizedBox(height: 20),
                   GetBuilder<OnboardingControllerImp>(
@@ -44,7 +44,7 @@ class OnBoardingScreen extends GetView<OnboardingControllerImp> {
                             AppColors.white,
                             8,
                             () {
-                              Go.off(AppRoutes.login);
+                              Go.to(AppRoutes.login);
                             },
                           )
                         : CustomButton(

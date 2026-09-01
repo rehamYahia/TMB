@@ -10,7 +10,7 @@ class VerifyCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(VerificationCodeControllerImp());
+    VerificationCodeControllerImp verificationCodeControllerImp = Get.find();
     TextEditingController emailController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
@@ -46,16 +46,16 @@ class VerifyCode extends StatelessWidget {
               ),
 
               SizedBox(height: 40),
-              GetBuilder<VerificationCodeControllerImp>(
-                builder: (verificationCodeControllerImp) => OtpTextField(
-                  fieldWidth: 50,
-                  borderRadius: BorderRadius.circular(20),
-                  numberOfFields: 5,
-                  borderColor: AppColors.primaryColor,
-                  showFieldAsBox: true,
-                  onCodeChanged: (String code) {},
-                  onSubmit: (String verificationCode) {},
-                ),
+              OtpTextField(
+                fieldWidth: 50,
+                borderRadius: BorderRadius.circular(20),
+                numberOfFields: 5,
+                borderColor: AppColors.primaryColor,
+                showFieldAsBox: true,
+                onCodeChanged: (String code) {},
+                onSubmit: (String verificationCode) {
+                  verificationCodeControllerImp.navigateToResetPassword();
+                },
               ),
             ],
           ),
