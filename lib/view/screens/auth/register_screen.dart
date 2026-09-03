@@ -55,6 +55,7 @@ class RegisterScreen extends GetView<SettingServices> {
                 "enter_your_name".tr,
                 "username".tr,
                 Icons.person_2_outlined,
+                (val) {},
               ),
               SizedBox(height: 10),
               customTextFormField(
@@ -62,6 +63,7 @@ class RegisterScreen extends GetView<SettingServices> {
                 "enter_your_email".tr,
                 "email".tr,
                 Icons.email_outlined,
+                (val) {},
               ),
               SizedBox(height: 10),
               customTextFormField(
@@ -69,6 +71,7 @@ class RegisterScreen extends GetView<SettingServices> {
                 "phone_number".tr,
                 "enter_phone_number".tr,
                 Icons.phone,
+                (val) {},
               ),
               SizedBox(height: 10),
               customTextFormField(
@@ -76,6 +79,7 @@ class RegisterScreen extends GetView<SettingServices> {
                 "enter_your_password".tr,
                 "password".tr,
                 Icons.remove_red_eye_outlined,
+                (val) {},
               ),
 
               SizedBox(height: 10),

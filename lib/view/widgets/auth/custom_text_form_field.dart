@@ -7,12 +7,14 @@ class customTextFormField extends StatelessWidget {
   final String hint;
   final String lable;
   final IconData icon;
+  final String? Function(String?)? valid;
 
   customTextFormField(
     this.controller,
     this.hint,
     this.lable,
     this.icon,
+    this.valid,
   ); // const customTextFormField({super.key} , controller );
 
   @override
@@ -20,6 +22,7 @@ class customTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 15),
       child: TextFormField(
+        validator: valid,
         controller: controller,
         decoration: InputDecoration(
           hint: Text(hint),

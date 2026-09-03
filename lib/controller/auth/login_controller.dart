@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/routes/app_routes.dart';
@@ -10,13 +11,21 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController {
+  GlobalKey<FormState> formState = GlobalKey();
   @override
   navigateToSignUp() {
     Go.to(AppRoutes.register);
   }
 
   @override
-  signIn() {}
+  signIn() {
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      print("validate");
+    } else {
+      print("not valid ");
+    }
+  }
 
   @override
   void onInit() {

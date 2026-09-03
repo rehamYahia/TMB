@@ -54,6 +54,7 @@ class ResetPassword extends StatelessWidget {
                 "enter_your_password".tr,
                 "password".tr,
                 Icons.remove_red_eye_outlined,
+                (val) {},
               ),
               SizedBox(height: 10),
               customTextFormField(
@@ -61,6 +62,7 @@ class ResetPassword extends StatelessWidget {
                 "confirm_password".tr,
                 "confirm_password".tr,
                 Icons.remove_red_eye_outlined,
+                (val) {},
               ),
               SizedBox(height: 10),
 
