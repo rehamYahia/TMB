@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/routes/app_routes.dart';
@@ -9,12 +10,21 @@ abstract class ForgetPasswordController extends GetxController {
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {
+  GlobalKey<FormState> formState = GlobalKey();
   @override
-  checkEmail() {}
+  checkEmail() {
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      print("valid forgetpassword");
+      navigateToVerification();
+    } else {
+      print("not valid forgetpassword");
+    }
+  }
 
   @override
   navigateToVerification() {
-    Go.to(AppRoutes.verifyCode);
+    Go.off(AppRoutes.verifyCode);
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/routes/app_routes.dart';
@@ -9,13 +10,23 @@ abstract class ResetPasswordController extends GetxController {
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
+  GlobalKey<FormState> formState = GlobalKey();
+
   @override
   navigateToSucessReset() {
     Go.off(AppRoutes.sucessResetPassword);
   }
 
   @override
-  resetPassword() {}
+  resetPassword() {
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      navigateToSucessReset();
+      print("valid reset password");
+    } else {
+      print("not valid reset password");
+    }
+  }
 
   @override
   void onInit() {

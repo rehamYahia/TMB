@@ -55,7 +55,6 @@ class SignupVerification extends StatelessWidget {
                 enabledBorderColor: AppColors.light_grey,
                 fillColor: AppColors.primaryColor,
                 focusedBorderColor: AppColors.primaryColor,
-
                 fieldWidth: 50,
                 borderRadius: BorderRadius.circular(20),
                 numberOfFields: 5,

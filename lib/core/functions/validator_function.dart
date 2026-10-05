@@ -1,6 +1,18 @@
 import 'package:get/get.dart';
 
 validatorInput(String val, int min, int max, String type) {
+  if (val.isEmpty) {
+    return "$type can not be empty";
+  }
+
+  if (val.length < min) {
+    return "$type should be more than $min";
+  }
+
+  if (val.length > max) {
+    return "$type should be less than $max";
+  }
+
   if (type == "userName") {
     if (!GetUtils.isUsername(val)) {
       return "invalid username";
@@ -13,19 +25,23 @@ validatorInput(String val, int min, int max, String type) {
     }
   }
   if (type == "phone") {
-    if (GetUtils.isPhoneNumber(val)) {
+    if (GetUtils.isEmail(val)) {
       return "invalid phone number ";
     }
   }
-  if (val.isEmpty) {
-    return "$type can not be empty";
-  }
+}
 
-  if (val.length < min) {
-    return "$type should be more than $min";
+codeVerficationInput(String code, String type) {
+  if (code.length < 5) {
+    return "enter the all code that sent";
   }
+  if (code.isEmpty) {
+    return "enter the code that sent to can do $type";
+  }
+}
 
-  if (val.length > max) {
-    return "$type should be less than $max";
+resetPasswordInput(String password, String confirmPassword) {
+  if (password != confirmPassword) {
+    return "password must be like the same confirm password value";
   }
 }

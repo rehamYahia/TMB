@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/state_manager.dart';
 
 import '../../core/constant/routes/app_routes.dart';
@@ -6,17 +7,27 @@ import '../../core/constant/routes/navigate.dart';
 abstract class RegisterController extends GetxController {
   navigateToSignIn();
   signUp();
-  navigateToSucessSignUp();
+  navigateToSignupVerification();
 }
 
 class RegisterControllerImp extends RegisterController {
+  GlobalKey<FormState> formState = GlobalKey();
+
   @override
   navigateToSignIn() {
     Go.to(AppRoutes.login);
   }
 
   @override
-  signUp() {}
+  signUp() {
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      print("valid register");
+      navigateToSignupVerification();
+    } else {
+      print("not valid register");
+    }
+  }
 
   @override
   void onInit() {
@@ -29,7 +40,8 @@ class RegisterControllerImp extends RegisterController {
   }
 
   @override
-  navigateToSucessSignUp() {
-    Go.off(AppRoutes.sucessSignUp);
+  navigateToSignupVerification() {
+    Go.off(AppRoutes.signupVerification);
+    // Go.off(AppRoutes.sucessSignUp);
   }
 }

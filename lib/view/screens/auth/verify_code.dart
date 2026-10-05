@@ -11,7 +11,6 @@ class VerifyCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     VerificationCodeControllerImp verificationCodeControllerImp = Get.find();
-    TextEditingController emailController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
       appBar: AppBar(
@@ -60,7 +59,30 @@ class VerifyCode extends StatelessWidget {
                 showFieldAsBox: true,
                 onCodeChanged: (String code) {},
                 onSubmit: (String verificationCode) {
-                  verificationCodeControllerImp.navigateToResetPassword();
+                  String? error = verificationCodeControllerImp
+                      .codeVerficationInput(verificationCode, "reset password");
+
+                  if (error != null) {
+                    Get.snackbar("Error", error);
+                  } else {
+                    Get.snackbar("sucess", "");
+                    verificationCodeControllerImp.checkOtpCode(
+                      verificationCode,
+                      "reset password",
+                    );
+                    verificationCodeControllerImp.navigateToResetPassword();
+                  }
+                  // String? nessage = verificationCodeControllerImp
+                  //     .codeVerficationInput(verificationCode, "reset password");
+                  // if (nessage!.isNotEmpty) {
+                  //   Get.snackbar("Error", "Please enter the complete OTP");
+                  // } else {
+                  //   Get.snackbar("sucess", "sucess");
+                  //   verificationCodeControllerImp.checkOtpCode(
+                  //     verificationCode,
+                  //     "reset password",
+                  //   );
+                  // }
                 },
               ),
             ],
